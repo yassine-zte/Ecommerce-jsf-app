@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateClientTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateClientLabel_idClient}" for="idClient" />
+                    <h:inputText id="idClient" value="#{clientController.selected.idClient}" title="#{bundle.CreateClientTitle_idClient}" required="true" requiredMessage="#{bundle.CreateClientRequiredMessage_idClient}"/>
+                    <h:outputLabel value="#{bundle.CreateClientLabel_nomclient}" for="nomclient" />
+                    <h:inputText id="nomclient" value="#{clientController.selected.nomclient}" title="#{bundle.CreateClientTitle_nomclient}" />
+                    <h:outputLabel value="#{bundle.CreateClientLabel_adresse}" for="adresse" />
+                    <h:inputText id="adresse" value="#{clientController.selected.adresse}" title="#{bundle.CreateClientTitle_adresse}" />
+                    <h:outputLabel value="#{bundle.CreateClientLabel_email}" for="email" />
+                    <h:inputText id="email" value="#{clientController.selected.email}" title="#{bundle.CreateClientTitle_email}" />
+                    <h:outputLabel value="#{bundle.CreateClientLabel_tel}" for="tel" />
+                    <h:inputText id="tel" value="#{clientController.selected.tel}" title="#{bundle.CreateClientTitle_tel}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{clientController.create}" value="#{bundle.CreateClientSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{clientController.prepareList}" value="#{bundle.CreateClientShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateClientIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

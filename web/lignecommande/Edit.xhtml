@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditLignecommandeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditLignecommandeLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{lignecommandeController.selected.id}" title="#{bundle.EditLignecommandeTitle_id}" required="true" requiredMessage="#{bundle.EditLignecommandeRequiredMessage_id}"/>
+                    <h:outputLabel value="#{bundle.EditLignecommandeLabel_idProduit}" for="idProduit" />
+                    <h:inputText id="idProduit" value="#{lignecommandeController.selected.idProduit}" title="#{bundle.EditLignecommandeTitle_idProduit}" />
+                    <h:outputLabel value="#{bundle.EditLignecommandeLabel_quantitelinge}" for="quantitelinge" />
+                    <h:inputText id="quantitelinge" value="#{lignecommandeController.selected.quantitelinge}" title="#{bundle.EditLignecommandeTitle_quantitelinge}" />
+                    <h:outputLabel value="#{bundle.EditLignecommandeLabel_prixligne}" for="prixligne" />
+                    <h:inputText id="prixligne" value="#{lignecommandeController.selected.prixligne}" title="#{bundle.EditLignecommandeTitle_prixligne}" />
+                </h:panelGrid>
+                <h:commandLink action="#{lignecommandeController.update}" value="#{bundle.EditLignecommandeSaveLink}"/>
+                <br />
+                <br />
+                <h:commandLink action="View" value="#{bundle.EditLignecommandeViewLink}" immediate="true"/>
+                <br />
+                <h:commandLink action="#{lignecommandeController.prepareList}" value="#{bundle.EditLignecommandeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.EditLignecommandeIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

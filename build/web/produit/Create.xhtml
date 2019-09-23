@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateProduitTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_idProduit}" for="idProduit" />
+                    <h:inputText id="idProduit" value="#{produitController.selected.idProduit}" title="#{bundle.CreateProduitTitle_idProduit}" required="true" requiredMessage="#{bundle.CreateProduitRequiredMessage_idProduit}"/>
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_idCat}" for="idCat" />
+                    <h:inputText id="idCat" value="#{produitController.selected.idCat}" title="#{bundle.CreateProduitTitle_idCat}" required="true" requiredMessage="#{bundle.CreateProduitRequiredMessage_idCat}"/>
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_desingnation}" for="desingnation" />
+                    <h:inputTextarea rows="4" cols="30" id="desingnation" value="#{produitController.selected.desingnation}" title="#{bundle.CreateProduitTitle_desingnation}" />
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_prix}" for="prix" />
+                    <h:inputText id="prix" value="#{produitController.selected.prix}" title="#{bundle.CreateProduitTitle_prix}" />
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_quantite}" for="quantite" />
+                    <h:inputText id="quantite" value="#{produitController.selected.quantite}" title="#{bundle.CreateProduitTitle_quantite}" />
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_selectione}" for="selectione" />
+                    <h:inputText id="selectione" value="#{produitController.selected.selectione}" title="#{bundle.CreateProduitTitle_selectione}" />
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_photoprd}" for="photoprd" />
+                    <h:inputText id="photoprd" value="#{produitController.selected.photoprd}" title="#{bundle.CreateProduitTitle_photoprd}" />
+                    <h:outputLabel value="#{bundle.CreateProduitLabel_descriptionprd}" for="descriptionprd" />
+                    <h:inputText id="descriptionprd" value="#{produitController.selected.descriptionprd}" title="#{bundle.CreateProduitTitle_descriptionprd}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{produitController.create}" value="#{bundle.CreateProduitSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{produitController.prepareList}" value="#{bundle.CreateProduitShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:commandLink value="#{bundle.CreateProduitIndexLink}" action="/index" immediate="true" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>
